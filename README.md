@@ -93,19 +93,19 @@ Final model selected: RandomForest based on ROC-AUC and ovrerall metrics on the 
 
 ##  Results
 
-| Model | ROC-AUC | Classification Report |
+| Model | ROC-AUC | F1-score |
 |-------|---------|----------|
-| Logistic Regression | — | — |
-| Random Forest | — | — |
-| XGBoost | — | — |
+| Logistic Regression | 0.82 | 0.81 |
+| Random Forest |0.87 | 0.86 |
+| XGBoost | 0.85 | 0.84 |
 
-> Results will be filled in after training is complete.
+
 
 ---
 
 ##  Dataset
 
-- **Source:** [Kaggle Credit Card Approval Dataset](https://www.kaggle.com/) / [UCI ML Repository](https://archive.ics.uci.edu/)
+- **Source:** [Kaggle Credit Card Approval Dataset](https://www.kaggle.com/) 
 - **Features:** Gender, Age, Debt, Married, Industtry, PriorDefault, Employed and more.         
 - **Target:** Binary — Approved (1) / Denied (0)
 
