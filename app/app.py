@@ -3,8 +3,8 @@ import numpy as np
 import pandas as pd
 import joblib
 
-model=joblib.load('credit_card_model.pkl')
-model_columns=joblib.load('model_columns.pkl')
+model = joblib.load('../models/credit_card_model.pkl')
+model_columns=joblib.load('../models/model_columns.pkl')
 
 def predict_approvals(genre, age, debt, married, bank_customer, years_employed, prior_default, employed, credit_score,  zip_code, income, industry, citizen):
     
