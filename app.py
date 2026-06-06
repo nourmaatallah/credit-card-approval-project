@@ -6,7 +6,7 @@ import joblib
 model=joblib.load('credit_card_model.pkl')
 model_columns=joblib.load('model_columns.pkl')
 
-def predict_approvals(genre, age, debt, married, bank_customer, years_employed, prior_default, employed, credit_score, drivers_license, zip_code, income, industry,ethnicity, citizen):
+def predict_approvals(genre, age, debt, married, bank_customer, years_employed, prior_default, employed, credit_score, drivers_license, zip_code, income, industry, citizen):
     
     input_data = {
         "Gender": 1 if genre == "Male" else 0,
@@ -26,10 +26,6 @@ def predict_approvals(genre, age, debt, married, bank_customer, years_employed, 
     industry_columns = [col for col in model_columns if col.startswith("Industry_")]
     for col in industry_columns:
         input_data[col] = 1 if col == f"Industry_{industry}" else 0
-    # Ethnicity encoding
-    ethnicity_columns = [col for col in model_columns if col.startswith("Ethnicity_")]
-    for col in ethnicity_columns:
-        input_data[col] = 1 if col == f"Ethnicity_{ethnicity}" else 0
 
     # Citizen encoding
     citizen_columns = [col for col in model_columns if col.startswith("Citizen_")]
@@ -69,13 +65,12 @@ industry=st.selectbox("Industry", ["Construction", "Education", "Energy & Utilit
                          "Information & Technology", "Leisure & Hospitality", "Manufacturing", "Professional & Buisiness Services", 
                          "Real Estate", "Retail Trade", "Transportation","Agriculture"])
     
-ethnicity=st.selectbox("Ethnicity", ["White","Black","Asian", "Latino","Other"])
 citizen=st.selectbox("Citizen", ["ByBirth","ByOtherMeans", "Temporary"])
 result=""
 if st.button("Predict"):
     result,probability = predict_approvals(genre, age, debt, married, bank_customer, years_employed,
                                prior_default, employed, credit_score, drivers_license,
-                               zip_code, income, industry, ethnicity, citizen)
+                               zip_code, income, industry, citizen)
     approval_proba=probability[1]*100
     rejection_proba=probability[0]*100
     st.success('The output is {}'.format(result))
