@@ -6,7 +6,7 @@ import joblib
 model=joblib.load('credit_card_model.pkl')
 model_columns=joblib.load('model_columns.pkl')
 
-def predict_approvals(genre, age, debt, married, bank_customer, years_employed, prior_default, employed, credit_score, drivers_license, zip_code, income, industry, citizen):
+def predict_approvals(genre, age, debt, married, bank_customer, years_employed, prior_default, employed, credit_score,  zip_code, income, industry, citizen):
     
     input_data = {
         "Gender": 1 if genre == "Male" else 0,
@@ -18,7 +18,6 @@ def predict_approvals(genre, age, debt, married, bank_customer, years_employed, 
         "PriorDefault": 1 if prior_default == "Yes" else 0,
         "Employed": 1 if employed == "Yes" else 0,
         "CreditScore": credit_score,
-        "DriversLicense": 1 if drivers_license == "Yes" else 0,
         "ZipCode": zip_code,
         "Income": income,
     }
@@ -57,7 +56,6 @@ years_employed=st.number_input("Years Employed", min_value=0.0)
 prior_default=st.selectbox("Prior Default", ["Yes","No"])
 employed=st.selectbox("Employed", ["Yes","No"])
 credit_score=st.number_input("Credit Score", min_value=0)
-drivers_license=st.selectbox("Drivers License", ["Yes","No"])
 zip_code=st.number_input("Zip Code", min_value=0)
 income=st.number_input("Income", min_value=0.0)
 
@@ -69,7 +67,7 @@ citizen=st.selectbox("Citizen", ["ByBirth","ByOtherMeans", "Temporary"])
 result=""
 if st.button("Predict"):
     result,probability = predict_approvals(genre, age, debt, married, bank_customer, years_employed,
-                               prior_default, employed, credit_score, drivers_license,
+                               prior_default, employed, credit_score,
                                zip_code, income, industry, citizen)
     approval_proba=probability[1]*100
     rejection_proba=probability[0]*100
