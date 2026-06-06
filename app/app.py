@@ -2,9 +2,10 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import joblib
-
-model = joblib.load('../models/credit_card_model.pkl')
-model_columns=joblib.load('../models/model_columns.pkl')
+import os
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+model = joblib.load(os.path.join(BASE_DIR, 'models', 'credit_card_model.pkl'))
+model_columns = joblib.load(os.path.join(BASE_DIR, 'models', 'model_columns.pkl'))
 
 def predict_approvals(genre, age, debt, married, bank_customer, years_employed, prior_default, employed, credit_score,  zip_code, income, industry, citizen):
     
