@@ -27,13 +27,6 @@ The project covers the full ML lifecycle: data collection, cleaning, exploratory
 ```
 credit-approval-prediction/
 │
-├── data/
-│   ├── raw/                  # Original dataset (not modified)
-│   └── processed/            # Cleaned and encoded data
-│
-├── notebooks/
-│   ├── Credit_Cards_Approval_Project.ipynb        # All the ML workflow
-│
 ├── models/
 │   ├── credit_card_model.pkl             # Saved best model
 │   └── model_columns.pkl     # Training column order for inference
