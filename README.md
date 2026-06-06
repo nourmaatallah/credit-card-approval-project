@@ -89,7 +89,7 @@ Final model selected: RandomForest based on ROC-AUC and ovrerall metrics on the 
 | Model | ROC-AUC | F1-score |
 |-------|---------|----------|
 | Logistic Regression | 0.82 | 0.81 |
-| Random Forest |0.87 | 0.86 |
+| Random Forest |0.86 | 0.85 |
 | XGBoost | 0.85 | 0.84 |
 
 
